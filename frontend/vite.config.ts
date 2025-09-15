@@ -5,4 +5,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/my-portifolio/',
+  build: { outDir: '../docs' }   // <-- build to repo/docs
 })
