@@ -1,9 +1,9 @@
 import './App.css'
-import Header from '../components/Header'
-import AboutMe from '../components/AboutMe'
-import Education from '../components/Education'
-import { Experience } from '../components/Experience'
-import { Contact } from '../components/Contact'
+import Header from './components/Header'
+import AboutMe from './components/AboutMe'
+import Education from './components/Education'
+import { Experience } from './components/Experience'
+import { Contact } from './components/Contact'
 
 function App() {
 
