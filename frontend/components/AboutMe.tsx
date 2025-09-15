@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './AboutMe.css'
-import meImg from '../src/assets/me.jpg';
+
 
 export function AboutMe() {
     const [skillPercent, setSkillPercent] = useState(85);
@@ -165,20 +165,20 @@ export function AboutMe() {
                         aria-label={`Skill meter: ${skillPercent}%`}
                     >
                         <div className="skill-ring__inner">
-                            <img src={meImg} alt="Martin Lyngås" className="skill-ring__img" />
+                            <img src="/assets/me.jpg" alt="Martin Lyngås" className="skill-ring__img" />
                         </div>
-                    </div>
 
-                    {/* Percent caption under the image */}
-                    <p className="skill-ring__percent">
-                        <strong>{Math.round(skillPercent)}%</strong>
-                    </p>
+                        {/* Percent caption under the image */}
+                        <p className="skill-ring__percent">
+                            <strong>{Math.round(skillPercent)}%</strong>
+                        </p>
 
-                    {/* Hover help under the percent */}
-                    <div className="skill-ring__help">
-                        <span className="skill-ring__icon">?</span>
-                        <div className="skill-ring__tooltip">
-                            This percentage is a relative scale of my experience with the selected technology.
+                        {/* Hover help under the percent */}
+                        <div className="skill-ring__help">
+                            <span className="skill-ring__icon">?</span>
+                            <div className="skill-ring__tooltip">
+                                This percentage is a relative scale of my experience with the selected technology.
+                            </div>
                         </div>
                     </div>
                 </div>
