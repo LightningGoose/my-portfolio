@@ -120,14 +120,15 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 26px;
-    height: 26px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     background: #111;
     border: 4px solid #6ee7ff;
     box-shadow: 0 0 0 6px rgba(110, 231, 255, .12);
     cursor: pointer;
     transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    padding: 0;
 }
 
 .tl__dot:hover {

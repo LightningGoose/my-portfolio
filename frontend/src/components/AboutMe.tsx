@@ -1,11 +1,37 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './AboutMe.css'
-import meImg from '../assets/me.jpg';
-
 
 export function AboutMe() {
-    const [skillPercent, setSkillPercent] = useState(85);
+    const [skillPercent, setSkillPercent] = useState(50);
     const [openGroup, setOpenGroup] = useState<string | null>("Frontend");
+    const [displayPercent, setDisplayPercent] = useState(50);
+    const rafRef = useRef<number | null>(null);
+
+
+    useEffect(() => {
+        const start = performance.now();
+        const from = displayPercent;   // read once, correct value
+        const to = skillPercent;
+        const dur = 600; // ms
+
+        const ease = (t: number) =>
+            t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+
+        const tick = (now: number) => {
+            const t = Math.min(1, (now - start) / dur);
+            const v = from + (to - from) * ease(t);
+            setDisplayPercent(v);
+            console.log("Animating:", from, "→", to, "current:", v.toFixed(1));
+            if (t < 1) rafRef.current = requestAnimationFrame(tick);
+        };
+
+        if (rafRef.current) cancelAnimationFrame(rafRef.current);
+        rafRef.current = requestAnimationFrame(tick);
+
+        return () => {
+            if (rafRef.current) cancelAnimationFrame(rafRef.current);
+        };
+    }, [skillPercent]);
 
     return (
         <section id="about" className="about">
@@ -163,19 +189,17 @@ export function AboutMe() {
                     <div
                         className="skill-ring"
                         style={{ ["--progress" as any]: skillPercent }}
-                        aria-label={`Skill meter: ${skillPercent}%`}
+                        aria-label={`Skill meter: ${Math.round(displayPercent)}%`}
                     >
                         <div className="skill-ring__inner">
                             <img src={`${import.meta.env.BASE_URL}me.jpg`} alt="Martin Lyngås" className="skill-ring__img" />
                         </div>
                     </div>
 
-                    {/* Percent caption under the image - moved OUTSIDE .skill-ring */}
                     <p className="skill-ring__percent">
-                        <strong>{Math.round(skillPercent)}%</strong>
+                        <strong>{Math.round(displayPercent)}%</strong>
                     </p>
 
-                    {/* Hover help under the percent - moved OUTSIDE .skill-ring */}
                     <div className="skill-ring__help">
                         <span className="skill-ring__icon">?</span>
                         <div className="skill-ring__tooltip">
