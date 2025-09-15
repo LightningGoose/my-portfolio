@@ -166,7 +166,7 @@ export function AboutMe() {
                         aria-label={`Skill meter: ${skillPercent}%`}
                     >
                         <div className="skill-ring__inner">
-                            <img src={meImg} alt="Martin Lyngås" className="skill-ring__img" />
+                            <img src={`${import.meta.env.BASE_URL}me.jpg`} alt="Martin Lyngås" className="skill-ring__img" />
                         </div>
                     </div>
 
