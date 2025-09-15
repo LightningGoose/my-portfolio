@@ -1,0 +1,266 @@
+/* Root section */
+.about {
+    background: #000;
+    color: #fff;
+    padding: 3rem 1.5rem;
+}
+
+.about__grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .about__grid {
+        grid-template-columns: 1.2fr 1fr;
+    }
+}
+
+/* Left content */
+.about__title {
+    font-size: clamp(1.8rem, 2.5vw, 2.25rem);
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+}
+
+.about__accent {
+    color: #6ee7ff;
+    /* light cyan highlight; adjust to your palette */
+}
+
+.about__text {
+    color: #c7c7c7;
+    line-height: 1.7;
+    display: grid;
+    gap: 0.8rem;
+}
+
+/* Buttons under the text */
+.about__buttons {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+}
+
+.about__chip {
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    transition: border-color 120ms ease, background 120ms ease, transform 120ms ease;
+    cursor: pointer;
+}
+
+.about__chip:hover {
+    border-color: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+}
+
+/* Right: large circle with thick, animated border */
+/* Right container stays the same */
+.about__right {
+    display: flex;
+    justify-content: center;
+}
+
+/* Large, thick ring that hugs the inner circle */
+.skill-ring {
+    --size: clamp(220px, 35vw, 350px);
+    --thickness: 20px;
+    /* increase ring thickness here */
+    --progress: 75;
+    /* 0–100; updated inline by React */
+    --track: #2a2a2a;
+    /* ring background/track color */
+    --grad-start: #6ee7ff;
+    /* progress gradient start */
+    --grad-end: #a78bfa;
+    /* progress gradient end */
+
+    width: var(--size);
+    height: var(--size);
+    position: relative;
+    border-radius: 50%;
+}
+
+/* Create the donut “track” (full 100%) with NO gap */
+.skill-ring::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(var(--track) 0 100%);
+    /* Cut out the center so the ring width = --thickness and touches the inner circle */
+    -webkit-mask: radial-gradient(farthest-side,
+            transparent calc(100% - var(--thickness) - 0.5px),
+            #000 calc(100% - var(--thickness) - 0.5px));
+    mask: radial-gradient(farthest-side,
+            transparent calc(100% - var(--thickness) - 0.5px),
+            #000 calc(100% - var(--thickness) - 0.5px));
+}
+
+/* Progress overlay that exactly matches the track’s donut area */
+.skill-ring::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(var(--grad-start),
+            var(--grad-end) calc(var(--progress) * 1%),
+            transparent 0);
+    -webkit-mask: radial-gradient(farthest-side,
+            transparent calc(100% - var(--thickness) - 0.5px),
+            #000 calc(100% - var(--thickness) - 0.5px));
+    mask: radial-gradient(farthest-side,
+            transparent calc(100% - var(--thickness) - 0.5px),
+            #000 calc(100% - var(--thickness) - 0.5px));
+    transition: background 280ms ease;
+}
+
+/* Inner circle (your photo), flush against the ring */
+.skill-ring__inner {
+    position: absolute;
+    inset: var(--thickness);
+    /* this ensures no gap to the ring */
+    border-radius: 50%;
+    overflow: hidden;
+    background: #111;
+    /* inner grey circle */
+    display: grid;
+    place-items: center;
+}
+
+.skill-ring__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.skill-ring__help {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.skill-ring__icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #222;
+    border: 1px solid #6ee7ff;
+    color: #6ee7ff;
+    font-weight: 700;
+    cursor: help;
+    font-size: 1rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.skill-ring__icon:hover {
+    background: #6ee7ff;
+    color: #000;
+}
+
+/* Tooltip */
+.skill-ring__tooltip {
+    position: absolute;
+    bottom: 130%;
+    /* place above the circle */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    padding: 0.5rem 0.75rem;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #ddd;
+    line-height: 1.4;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    text-align: center;
+    z-index: 10;
+}
+
+.skill-ring__help:hover .skill-ring__tooltip {
+    opacity: 1;
+}
+
+.about__right {
+    display: flex;
+    flex-direction: column;
+    /* <-- add */
+    align-items: center;
+    /* <-- add */
+    justify-content: center;
+    /* keep */
+    gap: 0.75rem;
+    /* small spacing between items */
+}
+
+/* New: percent text under the image */
+.skill-ring__percent {
+    text-align: center;
+    color: #d8d8d8;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.skill-ring__percent strong {
+    color: #fff;
+}
+
+/* Optional: keep a little space before the help icon */
+.skill-ring__help {
+    margin-top: 0.25rem;
+}
+
+.divider {
+    width: 300px;
+    height: 2px;
+    margin: 0.5rem auto 1rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #6ee7ff 0%, #2ad0ff 60%);
+    opacity: 0.95;
+}
+
+.about__skills-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0.75rem 0;
+    color: #6ee7ff;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* <-- center the header */
+    gap: .5rem;
+    /* nice spacing if you add icons/arrows */
+    text-align: center;
+    /* also center the text itself */
+}
+
+/* Center the buttons; remove the left indent */
+.about__buttons {
+    margin-left: 0;
+    /* <-- was 0.5rem */
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    /* <-- keep chips centered under header */
+}

@@ -1,0 +1,112 @@
+.contact {
+    background: #000;
+    color: #fff;
+    padding: 3.5rem 1.5rem;
+    text-align: center;
+}
+
+.contact__title {
+    font-size: clamp(1.8rem, 2.5vw, 2.25rem);
+    font-weight: 800;
+    margin: 0 0 0.75rem 0;
+}
+
+.contact__accent {
+    color: #6ee7ff;
+}
+
+.contact__intro {
+    color: #c9c9c9;
+    max-width: 680px;
+    margin: 0 auto 1.75rem;
+    line-height: 1.6;
+}
+
+.contact__grid {
+    max-width: 720px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .contact__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.contact__card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0.75rem;
+    background: #0f0f0f;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    text-align: left;
+}
+
+.contact__card:hover {
+    border-color: #6ee7ff;
+    transform: translateY(-2px);
+}
+
+.contact__icon {
+    font-size: 1.5rem;
+    color: #6ee7ff;
+    flex-shrink: 0;
+}
+
+.contact__text {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact__label {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.contact__value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.contact__card:hover .contact__value {
+    color: #6ee7ff;
+}
+
+.contact__cta {
+    margin-top: 2rem;
+}
+
+.contact__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #6ee7ff;
+    color: #000;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.contact__button:hover {
+    background: #4dd4ec;
+    transform: translateY(-1px);
+}
+
+.contact__icon svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+    fill: currentColor;
+    /* make sure solid icons are visible */
+    stroke: currentColor;
+    /* for outlined icons */
+}
