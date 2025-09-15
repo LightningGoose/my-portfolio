@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './AboutMe.css'
+import meImg from '../assets/me.jpg';
 
 
 export function AboutMe() {
@@ -50,11 +51,11 @@ export function AboutMe() {
                             <div className="about__buttons">
                                 {[
                                     ["React", 90],
-                                    ["TypeScript", 85],
-                                    ["JavaScript", 80],
+                                    ["TypeScript", 80],
+                                    ["JavaScript", 70],
                                     ["CSS / SCSS", 75],
-                                    ["Bootstrap", 60],
-                                    ["Tailwind", 30],
+                                    ["Bootstrap", 50],
+                                    ["Tailwind", 10],
                                 ].map(([label, val]) => (
                                     <button
                                         key={label as string}
@@ -81,9 +82,9 @@ export function AboutMe() {
                             <div className="about__buttons">
                                 {[
                                     [".NET", 75],
-                                    ["Java", 35],
-                                    ["Python", 25],
-                                    ["Node.js", 40],
+                                    ["Java", 25],
+                                    ["Python", 20],
+                                    ["Node.js", 30],
                                 ].map(([label, val]) => (
                                     <button
                                         key={label as string}
@@ -110,7 +111,7 @@ export function AboutMe() {
                             <div className="about__buttons">
                                 {[
                                     ["Azure", 60],
-                                    ["Docker", 50],
+                                    ["Docker", 40],
                                     ["GitHub Actions", 75],
                                     ["SQL", 60],
                                 ].map(([label, val]) => (
@@ -138,9 +139,9 @@ export function AboutMe() {
                         {openGroup === "Design" && (
                             <div className="about__buttons">
                                 {[
-                                    ["Accessibility (WCAG)", 80],
+                                    ["Accessibility (WCAG)", 70],
                                     ["UI/UX Design", 75],
-                                    ["Prototyping (Figma)", 70],
+                                    ["Prototyping (Figma)", 80],
                                     ["GSAP Animations", 65],
                                 ].map(([label, val]) => (
                                     <button
@@ -165,20 +166,20 @@ export function AboutMe() {
                         aria-label={`Skill meter: ${skillPercent}%`}
                     >
                         <div className="skill-ring__inner">
-                            <img src="/assets/me.jpg" alt="Martin Lyngås" className="skill-ring__img" />
+                            <img src={meImg} alt="Martin Lyngås" className="skill-ring__img" />
                         </div>
+                    </div>
 
-                        {/* Percent caption under the image */}
-                        <p className="skill-ring__percent">
-                            <strong>{Math.round(skillPercent)}%</strong>
-                        </p>
+                    {/* Percent caption under the image - moved OUTSIDE .skill-ring */}
+                    <p className="skill-ring__percent">
+                        <strong>{Math.round(skillPercent)}%</strong>
+                    </p>
 
-                        {/* Hover help under the percent */}
-                        <div className="skill-ring__help">
-                            <span className="skill-ring__icon">?</span>
-                            <div className="skill-ring__tooltip">
-                                This percentage is a relative scale of my experience with the selected technology.
-                            </div>
+                    {/* Hover help under the percent - moved OUTSIDE .skill-ring */}
+                    <div className="skill-ring__help">
+                        <span className="skill-ring__icon">?</span>
+                        <div className="skill-ring__tooltip">
+                            This percentage is a relative scale of my experience with the selected technology.
                         </div>
                     </div>
                 </div>
