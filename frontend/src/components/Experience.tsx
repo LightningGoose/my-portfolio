@@ -55,6 +55,7 @@ const ITEMS: TimelineItem[] = [
         bullets: [
             "Developed information pages, gig schedule, and embedded media.",
             "Lightweight backend for updates and content management.",
+            "Work in progress",
         ],
         tags: ["React", "Routing", "Content"],
         sortKey: 202505,
@@ -66,7 +67,7 @@ const ITEMS: TimelineItem[] = [
         period: "June 2023 – Present",
         kind: "general",
         bullets: [
-            "Primary responsibility for the paint department, advising customers on colors, combinations, and finishes.",
+            "Primary responsibility for the paint department, advising customers on colors, material combinations, and finishes.",
             "Mixed and prepared paint orders, ensuring accuracy and quality.",
             "Supported related areas such as tools, fasteners, and general hardware.",
             "Provided tailored customer service and guidance throughout the purchasing process."

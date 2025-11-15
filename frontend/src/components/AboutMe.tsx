@@ -76,11 +76,15 @@ export function AboutMe() {
                         {openGroup === "Frontend" && (
                             <div className="about__buttons">
                                 {[
-                                    ["React", 90],
-                                    ["TypeScript", 80],
+                                    ["React", 80],
+                                    ["Vue.js", 10],
+                                    ["HTML", 85],
+                                    ["Svelte", 5],
+                                    ["Angular", 10],
+                                    ["TypeScript", 70],
                                     ["JavaScript", 70],
-                                    ["CSS / SCSS", 75],
-                                    ["Bootstrap", 50],
+                                    ["CSS / SCSS", 65],
+                                    ["Bootstrap", 40],
                                     ["Tailwind", 10],
                                 ].map(([label, val]) => (
                                     <button
@@ -110,7 +114,7 @@ export function AboutMe() {
                                     [".NET", 75],
                                     ["Java", 25],
                                     ["Python", 20],
-                                    ["Node.js", 30],
+                                    ["Node.js", 25],
                                 ].map(([label, val]) => (
                                     <button
                                         key={label as string}
@@ -136,8 +140,8 @@ export function AboutMe() {
                         {openGroup === "Cloud" && (
                             <div className="about__buttons">
                                 {[
-                                    ["Azure", 60],
-                                    ["Docker", 40],
+                                    ["Azure", 50],
+                                    ["Docker", 30],
                                     ["GitHub Actions", 75],
                                     ["SQL", 60],
                                 ].map(([label, val]) => (
