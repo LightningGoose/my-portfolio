@@ -207,7 +207,7 @@ export function AboutMe() {
                     <div className="skill-ring__help">
                         <span className="skill-ring__icon">?</span>
                         <div className="skill-ring__tooltip">
-                            This percentage is a relative scale of my experience with the selected technology.
+                            This percentage reflects my experience and comfort level with the selected technology.
                         </div>
                     </div>
                 </div>
