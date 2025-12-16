@@ -6,14 +6,14 @@ const education = [
         school: "OsloMet – Oslo Metropolitan University",
         year: "2022 – 2025",
         description:
-            "Focused on full-stack development with React/TypeScript and .NET 8, including specialization in Human–Computer Interaction (HCI) and UI/UX design. Led a team project developing a web-app deployed in production.",
+            "Focused on frontend development with React and JavaScript, combined with .NET-based backend development. Specialized in Human–Computer Interaction (HCI) and UI/UX design. Contributed to a team-based bachelor project resulting in a production-deployed web application.",
     },
     {
         degree: "Bachelor of Architectural Lighting Design",
         school: "USN – University of South-Eastern Norway",
         year: "2017 – 2020",
         description:
-            "Explored the intersection of technology, perception, and design. Gained a strong foundation in color theory, contrast, and user-centered spatial design that I employ in my frontend work.",
+            "Focused on architectural lighting, perception, and design, including how light, contrast, and color influence human experience. Gained a strong foundation in lighting principles, visual hierarchy, and user-centered spatial design, which informs my approach to frontend and UI work.",
     },
 ];
 

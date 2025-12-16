@@ -44,19 +44,18 @@ export function AboutMe() {
 
                     <div className="about__text">
                         <p>
-                            Hi, I’m Martin Lyngås — a full-stack developer with a Bachelor’s degree in Applied Computer Science from OsloMet (2025).
-                            My main focus is React/TypeScript on the frontend and .NET on the backend, always with an eye for usability and clean design.
+                            Hi, I’m Martin Lyngås — a frontend-oriented developer with a background in Applied Computer Science from OsloMet.
+                            I enjoy building clean, intuitive user interfaces and turning ideas into concrete, usable solutions.
                         </p>
                         <p>
-                            For my bachelor project I led a team of five in building <em>“Drømmekoppen”</em>,
-                            a café web-app where guests create drinks in real time.
-                            I worked across both architecture and implementation — React components, .NET API, Azure SQL, and CI/CD pipelines —
-                            and also crafted motion design with GSAP.
+                            My main focus is React and modern frontend development, with an emphasis on UX, structure, and maintainability.
+                            I’m comfortable working close to design, iterating on layouts, components, and interactions until things feel right.
                         </p>
                         <p>
-                            With an earlier degree in Architectural Lighting Design, I bring a strong sense for color, contrast, and accessibility
-                            that translates directly into my UI/UX work. I enjoy turning complex flows into simple, intuitive experiences
-                            and I’m motivated by projects where code and creativity meet.
+                            Through my bachelor project and personal work, I’ve gained experience taking ideas from early sketches in Figma
+                            to finished, interactive web solutions. I also have a background in architectural lighting design, which has given
+                            me a strong understanding of color, contrast, and how people perceive visual information — something I bring with
+                            me into my UI work.
                         </p>
                     </div>
 
@@ -76,16 +75,16 @@ export function AboutMe() {
                         {openGroup === "Frontend" && (
                             <div className="about__buttons">
                                 {[
-                                    ["React", 80],
-                                    ["Vue.js", 10],
                                     ["HTML", 85],
-                                    ["Svelte", 5],
-                                    ["Angular", 10],
-                                    ["TypeScript", 70],
+                                    ["React", 80],
+                                    ["CSS / SCSS", 75],
                                     ["JavaScript", 70],
-                                    ["CSS / SCSS", 65],
+                                    ["TypeScript", 70],
                                     ["Bootstrap", 40],
+                                    ["Vue.js", 10],
+                                    ["Angular", 10],
                                     ["Tailwind", 10],
+                                    ["Svelte", 5],
                                 ].map(([label, val]) => (
                                     <button
                                         key={label as string}
@@ -112,9 +111,9 @@ export function AboutMe() {
                             <div className="about__buttons">
                                 {[
                                     [".NET", 75],
+                                    ["Node.js", 25],
                                     ["Java", 25],
                                     ["Python", 20],
-                                    ["Node.js", 25],
                                 ].map(([label, val]) => (
                                     <button
                                         key={label as string}
@@ -140,10 +139,11 @@ export function AboutMe() {
                         {openGroup === "Cloud" && (
                             <div className="about__buttons">
                                 {[
+                                    ["GitHub Actions", 75],
+                                    ["Git", 70],
+                                    ["SQL", 60],
                                     ["Azure", 50],
                                     ["Docker", 30],
-                                    ["GitHub Actions", 75],
-                                    ["SQL", 60],
                                 ].map(([label, val]) => (
                                     <button
                                         key={label as string}
@@ -169,9 +169,9 @@ export function AboutMe() {
                         {openGroup === "Design" && (
                             <div className="about__buttons">
                                 {[
-                                    ["Accessibility (WCAG)", 70],
-                                    ["UI/UX Design", 75],
                                     ["Prototyping (Figma)", 80],
+                                    ["UI/UX Design", 75],
+                                    ["Accessibility (WCAG)", 70],
                                     ["GSAP Animations", 65],
                                 ].map(([label, val]) => (
                                     <button
