@@ -55,7 +55,7 @@ export function AboutMe() {
                             Through my bachelor project and personal work, I’ve gained experience taking ideas from early sketches in Figma
                             to finished, interactive web solutions. I also have a background in architectural lighting design, which has given
                             me a strong understanding of color, contrast, and how people perceive visual information — something I bring with
-                            me into my UI work.
+                            me into my work with UI.
                         </p>
                     </div>
 
