@@ -37,14 +37,17 @@ const ITEMS: TimelineItem[] = [
         period: "2025 - Present",
         kind: "it",
         bullets: [
-            "Currently designing the site structure, user flows, and UI in Figma.",
-            "Producing technical documentation including system architecture, API contracts, and data models.",
-            "Planned implementation of a React frontend based on the Figma designs.",
-            "Planned .NET backend for content management and admin-controlled updates.",
-            "Work in progress.",
+            "Designing site structure, user flows, and high-fidelity UI in Figma.",
+            "Implemented a full-stack architecture with a React + TypeScript frontend and a .NET Web API backend.",
+            "Developed REST-based API contracts with DTOs, versioned routes, and centralized error handling.",
+            "Built content-driven features for merch, concerts, contact messages, and dynamic text blocks.",
+            "Set up Dockerized backend with SQLite persistence and Azure-ready deployment configuration.",
+            "Project is under active development with focus on accessibility, maintainability, and clean architecture.",
         ],
-        tags: ["Figma", "UI/UX", "Architecture", "React (planned)", ".NET (planned)", "Azure (planned)"],
-        sortKey: 202505,
+        tags: [
+            "React", "TypeScript", "Figma", ".NET Web API", "REST", "Docker", "SQLite", "Azure", "UI/UX", "Accessibility",
+        ],
+        sortKey: 202512,
     },
     {
         id: "drommekoppen",
@@ -63,6 +66,22 @@ const ITEMS: TimelineItem[] = [
         linkLabel: "Live demo",
         linkHref: "https://matchaogmokka.no/",
         sortKey: 202506,
+    },
+    {
+        id: "maxbo-lier",
+        title: "Warehouse & Logistics Associate",
+        org: "Maxbo Stormarked Lier",
+        period: "January 2026 – Present",
+        kind: "general",
+        bullets: [
+            "Receiving and handling incoming goods for the warehouse.",
+            "Operating forklift for unloading trucks and internal logistics support.",
+            "Preparing and completing customer orders, including click & collect.",
+            "Delivering order goods to professional and private customers.",
+            "Supporting all departments with logistics and material handling as needed."
+        ],
+        tags: ["Logistics", "Order handling", "Forklift operation", "Customer service"],
+        sortKey: 202601,
     },
     {
         id: "maxbo-sinsen",

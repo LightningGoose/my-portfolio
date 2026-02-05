@@ -6,7 +6,7 @@ const Header = () => (
             Martin <span className="header__accent">Lyngås</span>
         </h1>
         <div className="header__divider" aria-hidden="true"></div>
-        <h2>Frontend developer & UX/UI Designer</h2>
+        <h2>Fullstack Developer with a Frontend & UX Focus</h2>
 
         <nav>
             <button className="button-nav" onClick={() => window.location.href = '#about-me'}>

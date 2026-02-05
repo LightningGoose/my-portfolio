@@ -44,18 +44,19 @@ export function AboutMe() {
 
                     <div className="about__text">
                         <p>
-                            Hi, I’m Martin Lyngås — a frontend-oriented developer with a background in Applied Computer Science from OsloMet.
+                            Hi, I’m Martin Lyngås — a fullstack developer with a strong frontend focus and a background in Applied Computer Science from OsloMet.
                             I enjoy building clean, intuitive user interfaces and turning ideas into concrete, usable solutions.
                         </p>
                         <p>
-                            My main focus is React and modern frontend development, with an emphasis on UX, structure, and maintainability.
-                            I’m comfortable working close to design, iterating on layouts, components, and interactions until things feel right.
+                            My main focus is React and modern frontend development, but I also have experience working across the stack,
+                            from .NET-based APIs and databases to frontend architecture and UI.
+                            I value structure, maintainability, and understanding how technical decisions affect the overall product.
                         </p>
                         <p>
-                            Through my bachelor project and personal work, I’ve gained experience taking ideas from early sketches in Figma
-                            to finished, interactive web solutions. I also have a background in architectural lighting design, which has given
-                            me a strong understanding of color, contrast, and how people perceive visual information — something I bring with
-                            me into my work with UI.
+                            Through my bachelor project and personal work, I’ve taken ideas from early sketches in Figma
+                            to finished, interactive web solutions with a working backend.
+                            I also have a background in architectural lighting design, which has given me a strong understanding of color,
+                            contrast, and visual hierarchy — something I actively bring into my work with UI and user experience.
                         </p>
                     </div>
 
@@ -78,8 +79,8 @@ export function AboutMe() {
                                     ["HTML", 85],
                                     ["React", 80],
                                     ["CSS / SCSS", 75],
+                                    ["TypeScript", 75],
                                     ["JavaScript", 70],
-                                    ["TypeScript", 70],
                                     ["Bootstrap", 40],
                                     ["Vue.js", 10],
                                     ["Angular", 10],
@@ -142,7 +143,7 @@ export function AboutMe() {
                                     ["GitHub Actions", 75],
                                     ["Git", 70],
                                     ["SQL", 60],
-                                    ["Azure", 50],
+                                    ["Azure", 40],
                                     ["Docker", 30],
                                 ].map(([label, val]) => (
                                     <button

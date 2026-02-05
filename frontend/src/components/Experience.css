@@ -173,6 +173,9 @@
     gap: .35rem;
     width: 100%;
     cursor: pointer;
+    outline: none;
+    /* remove default focus ring */
+    -webkit-tap-highlight-color: transparent;
 }
 
 @media (min-width:720px) {
@@ -181,6 +184,19 @@
         justify-content: space-between;
         align-items: flex-start;
     }
+}
+
+/* Remove persistent white border/focus highlight when clicking with mouse */
+.tl__toggle:focus,
+.tl__toggle:active {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Prefer to keep focus styles for keyboard users if desired; override here to keep visual consistent */
+.tl__toggle:focus-visible {
+    outline: none;
+    box-shadow: none;
 }
 
 .tl__role {
