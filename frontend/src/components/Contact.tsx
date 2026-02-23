@@ -22,8 +22,8 @@ export function Contact() {
         },
         {
             label: "LinkedIn",
-            value: "linkedin.com/in/martin-lyngås",
-            href: "https://www.linkedin.com/in/martin-lyng%C3%A5s",
+            value: "linkedin.com/in/martin-lyngas",
+            href: "https://www.linkedin.com/in/martin-lyngas",
             icon: (
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM10 9h4v2h.06c.56-1.04 1.93-2.14 3.97-2.14C21 8.86 22 11 22 14.2V21h-4v-6c0-1.43-.03-3.28-2-3.28-2 0-2.3 1.56-2.3 3.18V21h-4V9z" fill="currentColor" />
