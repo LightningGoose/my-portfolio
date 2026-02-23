@@ -1,7 +1,7 @@
 /* Root section */
 .about {
-    background: #000;
-    color: #fff;
+    background: transparent;
+    color: var(--text-primary);
     padding: 3rem 1.5rem;
 }
 
@@ -10,7 +10,7 @@
     margin: 0 auto;
     display: grid;
     gap: 3rem;
-    align-items: center;
+    align-items: start;
 }
 
 @property --progress {
@@ -33,12 +33,12 @@
 }
 
 .about__accent {
-    color: #6ee7ff;
+    color: var(--accent);
     /* light cyan highlight; adjust to your palette */
 }
 
 .about__text {
-    color: #c7c7c7;
+    color: var(--text-secondary);
     line-height: 1.7;
     display: grid;
     gap: 0.8rem;
@@ -54,20 +54,35 @@
 }
 
 .about__chip {
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    background: rgba(255, 255, 255, 0.06);
-    color: #fff;
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
-    border-radius: 999px;
-    transition: border-color 120ms ease, background 120ms ease, transform 120ms ease;
+    min-height: 42px;
+    border: 1.5px solid color-mix(in srgb, var(--accent) 45%, transparent);
+    background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.5rem 0.9rem;
+    border-radius: 10px;
+    transition: border-color 140ms ease, background 140ms ease, transform 140ms ease, box-shadow 140ms ease;
     cursor: pointer;
 }
 
 .about__chip:hover {
-    border-color: rgba(255, 255, 255, 0.75);
-    background: rgba(255, 255, 255, 0.12);
+    border-color: color-mix(in srgb, var(--accent) 80%, transparent);
+    background: color-mix(in srgb, var(--accent) 18%, var(--surface));
     transform: translateY(-1px);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.about__chip:focus-visible {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 32%, transparent);
+}
+
+.about__chip[aria-pressed="true"] {
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 24%, var(--surface));
+    color: var(--text-primary);
 }
 
 /* Right: large circle with thick, animated border */
@@ -84,8 +99,8 @@
     --progress: 75;
     /* updated from inline style */
     --track: #2a2a2a;
-    --grad-start: #6ee7ff;
-    --grad-end: #a78bfa;
+    --grad-start: var(--accent);
+    --grad-end: var(--accent-purple);
 
     width: var(--size);
     height: var(--size);
@@ -130,7 +145,7 @@
     /* controls the ring width */
     border-radius: 50%;
     overflow: hidden;
-    background: #111;
+    background: var(--surface-strong);
     display: grid;
     place-items: center;
     z-index: 1;
@@ -157,9 +172,9 @@
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background: #222;
-    border: 1px solid #6ee7ff;
-    color: #6ee7ff;
+    background: var(--surface);
+    border: 1px solid var(--accent);
+    color: var(--accent);
     font-weight: 700;
     cursor: help;
     font-size: 1rem;
@@ -167,8 +182,8 @@
 }
 
 .skill-ring__icon:hover {
-    background: #6ee7ff;
-    color: #000;
+    background: var(--accent);
+    color: var(--surface);
 }
 
 /* Tooltip */
@@ -180,11 +195,11 @@
     transform: translateX(-50%);
     width: 220px;
     padding: 0.5rem 0.75rem;
-    background: #111;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
     border-radius: 6px;
     font-size: 0.85rem;
-    color: #ddd;
+    color: var(--text-secondary);
     line-height: 1.4;
     opacity: 0;
     pointer-events: none;
@@ -203,22 +218,30 @@
     /* <-- add */
     align-items: center;
     /* <-- add */
-    justify-content: center;
+    justify-content: flex-start;
     /* keep */
     gap: 0.75rem;
     /* small spacing between items */
+    align-self: start;
+}
+
+@media (min-width: 768px) {
+    .about__right {
+        position: sticky;
+        top: 1.5rem;
+    }
 }
 
 /* New: percent text under the image */
 .skill-ring__percent {
     text-align: center;
-    color: #d8d8d8;
+    color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.4;
 }
 
 .skill-ring__percent strong {
-    color: #fff;
+    color: var(--text-primary);
 }
 
 /* Optional: keep a little space before the help icon */
@@ -231,25 +254,46 @@
     height: 2px;
     margin: 0.5rem auto 1rem;
     border-radius: 999px;
-    background: linear-gradient(90deg, #6ee7ff 0%, #2ad0ff 60%);
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-strong) 60%);
     opacity: 0.95;
 }
 
 .about__skills-heading {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0.75rem 0;
-    color: #6ee7ff;
+    width: min(100%, 420px);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0.9rem auto;
+    padding: 0.85rem 1rem;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+    border: 2px solid color-mix(in srgb, var(--accent) 52%, transparent);
+    border-radius: 12px;
     cursor: pointer;
     user-select: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* <-- center the header */
     gap: .5rem;
-    /* nice spacing if you add icons/arrows */
     text-align: center;
-    /* also center the text itself */
+    transition: background 160ms ease, border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.about__skills-heading:hover {
+    background: color-mix(in srgb, var(--accent) 18%, var(--surface));
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.about__skills-heading:focus-visible {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 34%, transparent);
+}
+
+.about__skills-heading[aria-expanded="true"] {
+    background: color-mix(in srgb, var(--accent) 24%, var(--surface));
+    border-color: var(--accent);
 }
 
 /* Center the buttons; remove the left indent */

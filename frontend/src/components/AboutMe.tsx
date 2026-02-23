@@ -65,14 +65,16 @@ export function AboutMe() {
                     <div>Select a technology</div>
                     <div className="about__skills">
                         {/* Frontend */}
-                        <h3
+                        <button
+                            type="button"
                             className="about__skills-heading"
                             onClick={() =>
                                 setOpenGroup(prev => (prev === "Frontend" ? null : "Frontend"))
                             }
+                            aria-expanded={openGroup === "Frontend"}
                         >
                             Frontend {openGroup === "Frontend" ? "▾" : "▸"}
-                        </h3>
+                        </button>
                         {openGroup === "Frontend" && (
                             <div className="about__buttons">
                                 {[
@@ -100,14 +102,16 @@ export function AboutMe() {
                         )}
 
                         {/* Backend */}
-                        <h3
+                        <button
+                            type="button"
                             className="about__skills-heading"
                             onClick={() =>
                                 setOpenGroup(prev => (prev === "Backend" ? null : "Backend"))
                             }
+                            aria-expanded={openGroup === "Backend"}
                         >
                             Backend {openGroup === "Backend" ? "▾" : "▸"}
-                        </h3>
+                        </button>
                         {openGroup === "Backend" && (
                             <div className="about__buttons">
                                 {[
@@ -129,14 +133,16 @@ export function AboutMe() {
                         )}
 
                         {/* Cloud & Tools */}
-                        <h3
+                        <button
+                            type="button"
                             className="about__skills-heading"
                             onClick={() =>
                                 setOpenGroup(prev => (prev === "Cloud" ? null : "Cloud"))
                             }
+                            aria-expanded={openGroup === "Cloud"}
                         >
                             Cloud & Tools {openGroup === "Cloud" ? "▾" : "▸"}
-                        </h3>
+                        </button>
                         {openGroup === "Cloud" && (
                             <div className="about__buttons">
                                 {[
@@ -159,14 +165,16 @@ export function AboutMe() {
                         )}
 
                         {/* Design & UX */}
-                        <h3
+                        <button
+                            type="button"
                             className="about__skills-heading"
                             onClick={() =>
                                 setOpenGroup(prev => (prev === "Design" ? null : "Design"))
                             }
+                            aria-expanded={openGroup === "Design"}
                         >
                             Design & UX {openGroup === "Design" ? "▾" : "▸"}
-                        </h3>
+                        </button>
                         {openGroup === "Design" && (
                             <div className="about__buttons">
                                 {[
