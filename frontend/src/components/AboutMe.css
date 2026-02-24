@@ -88,6 +88,7 @@
 /* Right: large circle with thick, animated border */
 /* Right container stays the same */
 .about__right {
+    margin-top: 6rem;
     display: flex;
     justify-content: center;
 }
@@ -95,7 +96,7 @@
 /* Ring container */
 .skill-ring {
     --size: clamp(220px, 35vw, 350px);
-    --thickness: 20px;
+    --thickness: 18px;
     --progress: 75;
     /* updated from inline style */
     --track: #2a2a2a;
@@ -220,7 +221,7 @@
     /* <-- add */
     justify-content: flex-start;
     /* keep */
-    gap: 0.75rem;
+    gap: 0.2rem;
     /* small spacing between items */
     align-self: start;
 }
@@ -250,7 +251,7 @@
 }
 
 .divider {
-    width: 300px;
+    width: min(300px, 100%);
     height: 2px;
     margin: 0.5rem auto 1rem;
     border-radius: 999px;
@@ -306,4 +307,139 @@
     gap: 0.6rem;
     justify-content: center;
     /* <-- keep chips centered under header */
+}
+
+/* ========== Responsive: <= 1200px (large laptops/smaller desktops) ========== */
+@media (max-width: 1200px) {
+    .about {
+        padding: 2.65rem 1.25rem;
+    }
+
+    .about__grid {
+        gap: 2.25rem;
+        max-width: 1000px;
+    }
+
+    .skill-ring {
+        --size: clamp(210px, 32vw, 310px);
+        --thickness: 18px;
+    }
+}
+
+/* ========== Responsive: <= 992px (tablets landscape/small laptops) ========== */
+@media (max-width: 992px) {
+    .about {
+        padding: 2.25rem 1rem;
+    }
+
+    .about__grid {
+        gap: 1.75rem;
+    }
+
+    .about__title {
+        font-size: clamp(1.6rem, 3.6vw, 2rem);
+    }
+
+    .about__text {
+        gap: 0.65rem;
+        line-height: 1.62;
+    }
+
+    .about__skills-heading {
+        width: min(100%, 100%);
+        font-size: 1.02rem;
+    }
+
+    .skill-ring {
+        --size: clamp(200px, 38vw, 280px);
+    }
+
+    .skill-ring__tooltip {
+        width: min(220px, calc(100vw - 2.5rem));
+    }
+}
+
+/* ========== Responsive: <= 768px (tablets portrait/large phones) ========== */
+@media (max-width: 768px) {
+    .about {
+        padding: 2rem 0.9rem;
+    }
+
+    .about__grid {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+    }
+
+    .about__left,
+    .about__text {
+        text-align: center;
+    }
+
+    .about__right {
+        position: static;
+        top: auto;
+        gap: 0.65rem;
+    }
+
+    .skill-ring {
+        --size: clamp(190px, 60vw, 250px);
+        --thickness: 16px;
+    }
+
+    .about__chip {
+        font-size: 0.9rem;
+        padding: 0.48rem 0.8rem;
+        min-height: 40px;
+    }
+
+    .about__buttons {
+        gap: 0.5rem;
+    }
+}
+
+/* ========== Responsive: <= 576px (small phones) ========== */
+@media (max-width: 576px) {
+    .about {
+        padding: 1.7rem 0.75rem;
+    }
+
+    .about__title {
+        font-size: clamp(1.45rem, 6.8vw, 1.75rem);
+        margin-bottom: 0.8rem;
+    }
+
+    .about__text {
+        font-size: 0.95rem;
+        line-height: 1.55;
+    }
+
+    .about__skills-heading {
+        font-size: 0.95rem;
+        padding: 0.7rem 0.8rem;
+        margin: 0.75rem auto;
+    }
+
+    .about__buttons {
+        justify-content: flex-start;
+    }
+
+    .about__chip {
+        font-size: 0.86rem;
+        padding: 0.45rem 0.72rem;
+    }
+
+    .skill-ring {
+        --size: clamp(170px, 68vw, 220px);
+        --thickness: 14px;
+    }
+
+    .skill-ring__percent {
+        font-size: 0.9rem;
+    }
+
+    .skill-ring__tooltip {
+        width: min(200px, calc(100vw - 2rem));
+        font-size: 0.8rem;
+        bottom: 122%;
+    }
 }

@@ -4,3 +4,82 @@
   padding: 2rem;
   text-align: center;
 }
+
+.back-to-top {
+  position: fixed;
+  right: 1.5rem;
+  top: 1.1rem;
+  z-index: 120;
+  border: 1.5px solid color-mix(in srgb, var(--accent) 46%, var(--border-soft));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-strong) 88%, var(--surface));
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  font-weight: 700;
+  min-height: 44px;
+  padding: 0.62rem 0.95rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease, transform 150ms ease, border-color 150ms ease, background 150ms ease;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--surface-strong) 94%, var(--surface));
+}
+
+.back-to-top:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent), 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+/* ========== Responsive: <= 1200px (large laptops/smaller desktops) ========== */
+@media (max-width: 1200px) {
+  #root {
+    padding: 1.75rem;
+  }
+}
+
+/* ========== Responsive: <= 992px (tablets landscape/small laptops) ========== */
+@media (max-width: 992px) {
+  #root {
+    padding: 1.5rem;
+  }
+}
+
+/* ========== Responsive: <= 768px (tablets portrait/large phones) ========== */
+@media (max-width: 768px) {
+  #root {
+    padding: 1.25rem;
+  }
+
+  .back-to-top {
+    right: 1rem;
+    top: 1rem;
+    min-height: 42px;
+    font-size: 0.88rem;
+  }
+}
+
+/* ========== Responsive: <= 576px (small phones) ========== */
+@media (max-width: 576px) {
+  #root {
+    padding: 1rem 0.85rem;
+  }
+
+  .back-to-top {
+    right: 0.75rem;
+    top: 0.75rem;
+    min-height: 40px;
+    padding: 0.56rem 0.82rem;
+    font-size: 0.84rem;
+  }
+}

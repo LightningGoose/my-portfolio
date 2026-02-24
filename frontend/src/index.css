@@ -24,6 +24,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .light {
   --bg: #f7f8fa;
   --surface: #ffffff;
@@ -54,8 +70,23 @@ body {
   display: block;
   min-width: 320px;
   min-height: 100vh;
+  width: 100%;
   background: var(--bg);
   color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
 }
 
 h1 {

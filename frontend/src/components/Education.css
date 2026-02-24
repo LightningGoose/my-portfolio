@@ -76,3 +76,85 @@
     color: var(--text-secondary);
     line-height: 1.6;
 }
+
+/* ========== Responsive: <= 1200px (large laptops/smaller desktops) ========== */
+@media (max-width: 1200px) {
+    .education {
+        padding: 3.5rem 1.25rem;
+    }
+
+    .education__list {
+        max-width: 840px;
+    }
+}
+
+/* ========== Responsive: <= 992px (tablets landscape/small laptops) ========== */
+@media (max-width: 992px) {
+    .education {
+        padding: 3rem 1rem;
+    }
+
+    .education__title {
+        margin-bottom: 2.2rem;
+        font-size: clamp(1.6rem, 3.6vw, 2rem);
+    }
+
+    .education__card {
+        padding: 1.2rem;
+    }
+
+    .education__degree {
+        font-size: 1.12rem;
+    }
+}
+
+/* ========== Responsive: <= 768px (tablets portrait/large phones) ========== */
+@media (max-width: 768px) {
+    .education {
+        padding: 2.5rem 0.9rem;
+    }
+
+    .education__list {
+        gap: 1.2rem;
+    }
+
+    .education__header {
+        align-items: flex-start;
+        gap: 0.4rem;
+    }
+
+    .education__meta {
+        text-align: left;
+        font-size: 0.86rem;
+    }
+
+    .education__description {
+        font-size: 0.96rem;
+        line-height: 1.55;
+    }
+}
+
+/* ========== Responsive: <= 576px (small phones) ========== */
+@media (max-width: 576px) {
+    .education {
+        padding: 2rem 0.75rem;
+    }
+
+    .education__title {
+        font-size: clamp(1.42rem, 6.7vw, 1.72rem);
+        margin-bottom: 1.5rem;
+    }
+
+    .education__card {
+        padding: 1rem 0.9rem;
+    }
+
+    .education__degree {
+        font-size: 1.03rem;
+    }
+
+    .education__school,
+    .education__description {
+        font-size: 0.93rem;
+    }
+}

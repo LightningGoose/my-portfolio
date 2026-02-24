@@ -62,7 +62,7 @@ export function AboutMe() {
 
                     {/* Example: buttons that later control the ring progress */}
                     <div className='divider' aria-hidden="true"></div>
-                    <div>Select a technology</div>
+                    <div>Explore My Skills</div>
                     <div className="about__skills">
                         {/* Frontend */}
                         <button

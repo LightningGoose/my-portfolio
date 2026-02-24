@@ -71,23 +71,29 @@ nav {
 
 /* Button styling — airy, pill-shaped, subtle hover/focus */
 .button-nav {
-    padding: 0.6rem 1.15rem;
-    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 132px;
+    min-height: 50px;
+    padding: 0.84rem 1.7rem;
+    background: color-mix(in srgb, var(--surface-strong) 78%, var(--surface));
     color: var(--text-primary);
-    border: 1px solid var(--border-soft);
+    border: 2px solid color-mix(in srgb, var(--accent) 38%, var(--border-soft));
     border-radius: 999px;
     cursor: pointer;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: background 140ms ease, transform 120ms ease, box-shadow 120ms ease;
+    font-weight: 700;
+    font-size: 1.04rem;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+    transition: background 140ms ease, transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
 }
 
 /* Hover / active / focus */
 .button-nav:hover {
-    background: color-mix(in srgb, var(--surface-strong) 92%, transparent);
+    background: color-mix(in srgb, var(--surface-strong) 92%, var(--surface));
     border-color: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
 }
 
 .button-nav:active {
@@ -106,7 +112,104 @@ nav {
     }
 
     .button-nav {
-        padding: 0.7rem 1.25rem;
+        min-width: 145px;
+        min-height: 52px;
+        padding: 0.9rem 1.9rem;
+        font-size: 1.08rem;
+    }
+}
+
+/* ========== Responsive: <= 1200px (large laptops/smaller desktops) ========== */
+@media (max-width: 1200px) {
+    header {
+        padding: 1.85rem 1.25rem;
+    }
+
+    nav {
+        gap: 1.2rem;
+    }
+}
+
+/* ========== Responsive: <= 992px (tablets landscape/small laptops) ========== */
+@media (max-width: 992px) {
+    header {
+        padding: 1.6rem 1rem;
+    }
+
+    .header__title {
+        margin-bottom: 1.35rem;
+    }
+
+    header h2 {
+        font-size: 1.08rem;
+        margin-bottom: 1.1rem;
+    }
+
+    nav {
+        gap: 0.75rem;
+    }
+
+    .button-nav {
+        min-width: 125px;
+        min-height: 48px;
+        padding: 0.74rem 1.4rem;
         font-size: 1rem;
+    }
+}
+
+/* ========== Responsive: <= 768px (tablets portrait/large phones) ========== */
+@media (max-width: 768px) {
+    .header__theme-toggle {
+        position: static;
+        margin: 0 auto 0.9rem;
+        display: inline-flex;
+    }
+
+    .header__title {
+        font-size: clamp(1.55rem, 7vw, 1.9rem);
+        margin-bottom: 1rem;
+    }
+
+    .header__divider {
+        width: 110px;
+        margin: 0.4rem auto 0.85rem;
+    }
+
+    header h2 {
+        font-size: 1rem;
+        margin-bottom: 0.95rem;
+    }
+
+    nav {
+        gap: 0.6rem;
+    }
+
+    .button-nav {
+        min-width: 116px;
+        min-height: 46px;
+        padding: 0.68rem 1.2rem;
+        font-size: 0.98rem;
+    }
+}
+
+/* ========== Responsive: <= 576px (small phones) ========== */
+@media (max-width: 576px) {
+    header {
+        padding: 1.35rem 0.4rem;
+    }
+
+    nav {
+        width: min(100%, 320px);
+        margin: 0.85rem auto 0;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .button-nav {
+        width: 100%;
+        min-width: 0;
+        min-height: 44px;
+        padding: 0.74rem 1.05rem;
+        font-size: 0.98rem;
     }
 }
