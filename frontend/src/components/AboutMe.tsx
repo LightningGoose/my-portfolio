@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import './AboutMe.css'
+import { useLanguage } from '../language/LanguageContext'
 
 export function AboutMe() {
+    const { t } = useLanguage();
     const [skillPercent, setSkillPercent] = useState(50);
     const [openGroup, setOpenGroup] = useState<string | null>("Frontend");
     const [displayPercent, setDisplayPercent] = useState(50);
@@ -39,30 +41,18 @@ export function AboutMe() {
                 {/* Left */}
                 <div className="about__left">
                     <h2 className="about__title">
-                        About <span className="about__accent">Me</span>
+                        {t.about.title} <span className="about__accent">{t.about.titleAccent}</span>
                     </h2>
 
                     <div className="about__text">
-                        <p>
-                            Hi, I’m Martin Lyngås — a fullstack developer with a strong frontend focus and a background in Applied Computer Science from OsloMet.
-                            I enjoy building clean, intuitive user interfaces and turning ideas into concrete, usable solutions.
-                        </p>
-                        <p>
-                            My main focus is React and modern frontend development, but I also have experience working across the stack,
-                            from .NET-based APIs and databases to frontend architecture and UI.
-                            I value structure, maintainability, and understanding how technical decisions affect the overall product.
-                        </p>
-                        <p>
-                            Through my bachelor project and personal work, I’ve taken ideas from early sketches in Figma
-                            to finished, interactive web solutions with a working backend.
-                            I also have a background in architectural lighting design, which has given me a strong understanding of color,
-                            contrast, and visual hierarchy — something I actively bring into my work with UI and user experience.
-                        </p>
+                        {t.about.paragraphs.map((p: string, i: number) => (
+                            <p key={i}>{p}</p>
+                        ))}
                     </div>
 
                     {/* Example: buttons that later control the ring progress */}
                     <div className='divider' aria-hidden="true"></div>
-                    <div>Explore My Skills</div>
+                    <div>{t.about.exploreSkills}</div>
                     <div className="about__skills">
                         {/* Frontend */}
                         <button
@@ -73,7 +63,7 @@ export function AboutMe() {
                             }
                             aria-expanded={openGroup === "Frontend"}
                         >
-                            Frontend {openGroup === "Frontend" ? "▾" : "▸"}
+                            {t.about.skillGroups.frontend} {openGroup === "Frontend" ? "▾" : "▸"}
                         </button>
                         {openGroup === "Frontend" && (
                             <div className="about__buttons">
@@ -110,7 +100,7 @@ export function AboutMe() {
                             }
                             aria-expanded={openGroup === "Backend"}
                         >
-                            Backend {openGroup === "Backend" ? "▾" : "▸"}
+                            {t.about.skillGroups.backend} {openGroup === "Backend" ? "▾" : "▸"}
                         </button>
                         {openGroup === "Backend" && (
                             <div className="about__buttons">
@@ -141,7 +131,7 @@ export function AboutMe() {
                             }
                             aria-expanded={openGroup === "Cloud"}
                         >
-                            Cloud & Tools {openGroup === "Cloud" ? "▾" : "▸"}
+                            {t.about.skillGroups.cloud} {openGroup === "Cloud" ? "▾" : "▸"}
                         </button>
                         {openGroup === "Cloud" && (
                             <div className="about__buttons">
@@ -173,7 +163,7 @@ export function AboutMe() {
                             }
                             aria-expanded={openGroup === "Design"}
                         >
-                            Design & UX {openGroup === "Design" ? "▾" : "▸"}
+                            {t.about.skillGroups.design} {openGroup === "Design" ? "▾" : "▸"}
                         </button>
                         {openGroup === "Design" && (
                             <div className="about__buttons">
@@ -216,7 +206,7 @@ export function AboutMe() {
                     <div className="skill-ring__help">
                         <span className="skill-ring__icon">?</span>
                         <div className="skill-ring__tooltip">
-                            This percentage reflects my experience and comfort level with the selected technology.
+                            {t.about.skillRingTooltip}
                         </div>
                     </div>
                 </div>

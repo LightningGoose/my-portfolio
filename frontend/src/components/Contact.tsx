@@ -1,5 +1,6 @@
 import React from "react";
 import "./Contact.css";
+import { useLanguage } from "../language/LanguageContext";
 
 type ContactItem = {
     label: string;
@@ -9,9 +10,11 @@ type ContactItem = {
 };
 
 export function Contact() {
+    const { t } = useLanguage();
+
     const contactInfo: ContactItem[] = [
         {
-            label: "Email",
+            label: t.contact.labels.email,
             value: "m.lyngas@gmail.com",
             href: "mailto:m.lyngas@gmail.com",
             icon: (
@@ -21,7 +24,7 @@ export function Contact() {
             ),
         },
         {
-            label: "LinkedIn",
+            label: t.contact.labels.linkedin,
             value: "linkedin.com/in/martin-lyngas",
             href: "https://www.linkedin.com/in/martin-lyngas",
             icon: (
@@ -31,7 +34,7 @@ export function Contact() {
             ),
         },
         {
-            label: "GitHub",
+            label: t.contact.labels.github,
             value: "github.com/LightningGoose",
             href: "https://github.com/LightningGoose",
             icon: (
@@ -41,8 +44,8 @@ export function Contact() {
             ),
         },
         {
-            label: "Location",
-            value: "Drammen, Norway",
+            label: t.contact.labels.location,
+            value: t.contact.locationValue,
             icon: (
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z" fill="currentColor" />
@@ -54,11 +57,11 @@ export function Contact() {
     return (
         <section id="contact" className="contact">
             <h2 className="contact__title">
-                Get in <span className="contact__accent">Touch</span>
+                {t.contact.title} <span className="contact__accent">{t.contact.titleAccent}</span>
             </h2>
 
             <p className="contact__intro">
-                My main focus is frontend development and UX/UI design, where I can combine code with creativity. I’m also open to full-stack junior roles, freelance opportunities, and collaborative projects. Don’t hesitate to get in touch!
+                {t.contact.intro}
             </p>
 
             <div className="contact__grid">
@@ -93,7 +96,7 @@ export function Contact() {
 
             <div className="contact__cta">
                 <a href="mailto:m.lyngas@gmail.com" className="contact__button">
-                    Email me
+                    {t.contact.emailButton}
                 </a>
             </div>
         </section>

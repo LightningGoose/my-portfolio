@@ -1,15 +1,11 @@
 import { useMemo, useState } from "react";
 import "./Experience.css";
+import { useLanguage } from "../language/LanguageContext";
 
 type TimelineItem = {
     id: string;
-    title: string;
-    org: string;
-    period: string;
     kind: "it" | "general";
-    bullets: string[];
     tags?: string[];
-    linkLabel?: string;
     linkHref?: string;
     sortKey: number;
 };
@@ -17,33 +13,13 @@ type TimelineItem = {
 const ITEMS: TimelineItem[] = [
     {
         id: "portfolio",
-        title: "Digital Portfolio / CV",
-        org: "Personal project",
-        period: "2025 – Present",
         kind: "it",
-        bullets: [
-            "Frontend-only digital portfolio used to showcase projects and experience.",
-            "Minimalistic dark theme with focus on typography, layout, and readability.",
-            "Component-based React structure with modular and reusable styling.",
-            "Continuously updated as projects progress and new work is added.",
-        ],
         tags: ["React", "TypeScript", "Figma", "Modular CSS", "Design systems", "Accessibility"],
         sortKey: 202509,
     },
     {
         id: "bandsite",
-        title: "Band Website (Hobby Project)",
-        org: "Independent",
-        period: "2025 - Present",
         kind: "it",
-        bullets: [
-            "Designing site structure, user flows, and high-fidelity UI in Figma.",
-            "Implemented a full-stack architecture with a React + TypeScript frontend and a .NET Web API backend.",
-            "Developed REST-based API contracts with DTOs, versioned routes, and centralized error handling.",
-            "Built content-driven features for merch, concerts, contact messages, and dynamic text blocks.",
-            "Set up Dockerized backend with SQLite persistence and Azure-ready deployment configuration.",
-            "Project is under active development with focus on accessibility, maintainability, and clean architecture.",
-        ],
         tags: [
             "React", "TypeScript", "Figma", ".NET Web API", "REST", "Docker", "SQLite", "Azure", "UI/UX", "Accessibility",
         ],
@@ -51,85 +27,39 @@ const ITEMS: TimelineItem[] = [
     },
     {
         id: "drommekoppen",
-        title: "Bachelor Project – “Drømmekoppen”",
-        org: "OsloMet",
-        period: "2024 – 2025",
         kind: "it",
-        bullets: [
-            "Responsible for frontend development using React and JavaScript.",
-            "Created UI/UX sketches and prototypes in Figma.",
-            "Implemented GSAP-based animations and interactive UI elements.",
-            "Handled deployment and hosting on Azure, including CI/CD with GitHub Actions.",
-            "Worked closely with the team to ensure usability, accessibility, and performance.",
-        ],
         tags: ["React", "JavaScript", ".NET 8", "Azure (App Service, SQL)", "GitHub Actions (CI/CD)", "Figma", "UI/UX", "Accessibility", "GSAP"],
-        linkLabel: "Live demo",
         linkHref: "https://matchaogmokka.no/",
         sortKey: 202506,
     },
     {
         id: "maxbo-lier",
-        title: "Warehouse & Logistics Associate",
-        org: "Maxbo Stormarked Lier",
-        period: "January 2026 – Present",
         kind: "general",
-        bullets: [
-            "Receiving and handling incoming goods for the warehouse.",
-            "Operating forklift for unloading trucks and internal logistics support.",
-            "Preparing and completing customer orders, including click & collect.",
-            "Delivering order goods to professional and private customers.",
-            "Supporting all departments with logistics and material handling as needed."
-        ],
         tags: ["Logistics", "Order handling", "Forklift operation", "Customer service"],
         sortKey: 202601,
     },
     {
         id: "maxbo-sinsen",
-        title: "Sales Assistant – Paint & Hardware",
-        org: "Maxbo Sinsen",
-        period: "June 2023 – November 2025",
         kind: "general",
-        bullets: [
-            "Worked primarily in the paint department, taking ownership of daily operations and ensuring the area ran smoothly.",
-            "Advised customers on paint types, color choices, and material combinations.",
-            "Mixed and prepared paint orders with focus on accuracy and quality.",
-            "Supported related areas such as tools, fasteners, and general hardware as needed.",
-            "Provided customer guidance throughout the purchasing process."
-        ],
         tags: ["Customer service", "Color guidance", "Product knowledge", "Communication"],
         sortKey: 202306,
     },
     {
         id: "maxbo-lier-2",
-        title: "Area Lead – Timber",
-        org: "Maxbo Stormarked Lier",
-        period: "September 2021 – August 2022",
         kind: "general",
-        bullets: [
-            "Responsible for the timber department on the shop floor, including product knowledge and day-to-day operations.",
-            "Provided daily guidance and coordination for a team of 6 full-time and 7 part-time employees.",
-            "Handled supplier orders, warehouse restocking, and special customer orders.",
-            "Managed complaints and ensured product quality and customer satisfaction."
-        ],
         tags: ["Team coordination", "Customer service", "Logistics", "Inventory management"],
         sortKey: 202109,
     },
     {
         id: "maxbo-lier-1",
-        title: "Sales Assistant",
-        org: "Maxbo Stormarked Lier",
-        period: "April 2016 – August 2021",
         kind: "general",
-        bullets: [
-            "Assisted customers with product choices in timber and building merchandise departments.",
-            "Provided service-oriented guidance to help customers find suitable solutions.",
-        ],
         tags: ["Sales", "Customer service"],
         sortKey: 201604,
     },
 ];
 
 export function Experience() {
+    const { t } = useLanguage();
     const [filter, setFilter] = useState<"it" | "general" | "all">("it");
     const [expandedId, setExpandedId] = useState<string | null>(null);
 
@@ -142,32 +72,33 @@ export function Experience() {
         setExpandedId((prev) => (prev === id ? null : id));
     };
 
+    const tr = t.experience.items;
+
     return (
         <section id="experience" className="tl">
             <header className="tl__head">
                 <h2 className="tl__title">
-                    Experience
-                    &
-                    <span className="tl__accent"> Projects</span>
-
+                    {t.experience.title}
+                    {t.experience.titleAnd}
+                    <span className="tl__accent">{t.experience.titleAccent}</span>
                 </h2>
                 <div className="tl__tabs" role="tablist" aria-label="Experience filters">
                     {[
-                        { key: "it", label: "IT-related" },
-                        { key: "general", label: "General" },
-                        { key: "all", label: "All" },
-                    ].map((t) => (
+                        { key: "it", label: t.experience.tabs.it },
+                        { key: "general", label: t.experience.tabs.general },
+                        { key: "all", label: t.experience.tabs.all },
+                    ].map((tab) => (
                         <button
-                            key={t.key}
+                            key={tab.key}
                             role="tab"
-                            aria-selected={filter === (t.key as any)}
-                            className={`tl__tab ${filter === (t.key as any) ? "is-active" : ""}`}
+                            aria-selected={filter === (tab.key as typeof filter)}
+                            className={`tl__tab ${filter === (tab.key as typeof filter) ? "is-active" : ""}`}
                             onClick={() => {
-                                setFilter(t.key as any);
+                                setFilter(tab.key as typeof filter);
                                 setExpandedId(null);
                             }}
                         >
-                            {t.label}
+                            {tab.label}
                         </button>
                     ))}
                 </div>
@@ -179,12 +110,12 @@ export function Experience() {
                     {data.map((item, i) => {
                         const side = i % 2 === 0 ? "left" : "right";
                         const isOpen = expandedId === item.id;
+                        const itemTr = tr[item.id as keyof typeof tr];
                         return (
                             <li key={item.id} className={`tl__row tl__row--${side}`}>
-                                {/* Bigger center circle (no connector line) */}
                                 <button
                                     className={`tl__dot ${isOpen ? "is-open" : ""}`}
-                                    aria-label={`Toggle details for ${item.title}`}
+                                    aria-label={`Toggle details for ${itemTr.title}`}
                                     onClick={() => toggle(item.id)}
                                 />
                                 <article
@@ -200,40 +131,38 @@ export function Experience() {
                                                 toggle(item.id);
                                             }}
                                         >
-                                            <h3 className="tl__role">{item.title}</h3>
+                                            <h3 className="tl__role">{itemTr.title}</h3>
                                             <div className="tl__meta">
-                                                <span className="tl__org">{item.org}</span>
-                                                <span className="tl__period">{item.period}</span>
+                                                <span className="tl__org">{itemTr.org}</span>
+                                                <span className="tl__period">{itemTr.period}</span>
                                             </div>
                                         </button>
                                     </header>
                                     {item.tags && (
                                         <div className={`tl__tags ${isOpen ? "is-open" : "is-collapsed"}`}>
-                                            {item.tags.map((t) => (
-                                                <span key={t} className="tl__tag">
-                                                    {t}
+                                            {item.tags.map((tag) => (
+                                                <span key={tag} className="tl__tag">
+                                                    {tag}
                                                 </span>
                                             ))}
                                         </div>
                                     )}
 
-
-                                    {/* Details show only when open */}
                                     {isOpen && (
                                         <>
                                             <ul className="tl__bullets">
-                                                {item.bullets.map((b, j) => (
+                                                {itemTr.bullets.map((b: string, j: number) => (
                                                     <li key={j}>{b}</li>
                                                 ))}
                                             </ul>
-                                            {item.linkHref && (
+                                            {item.linkHref && "linkLabel" in itemTr && (
                                                 <a
                                                     className="tl__link"
                                                     href={item.linkHref}
                                                     target="_blank"
                                                     rel="noreferrer"
                                                 >
-                                                    {item.linkLabel}
+                                                    {(itemTr as any).linkLabel}
                                                 </a>
                                             )}
                                         </>

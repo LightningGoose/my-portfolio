@@ -41,18 +41,18 @@ html {
 }
 
 .light {
-  --bg: #f7f8fa;
-  --surface: #ffffff;
-  --surface-strong: #eef1f6;
+  --bg: #eaecf1;
+  --surface: #f0f2f7;
+  --surface-strong: #e2e5ed;
   --text-primary: #1a1a1a;
   --text-secondary: #4a4a4a;
   --text-muted: #666;
   --border-soft: rgba(26, 26, 26, 0.16);
-  --accent: #0f6f94;
-  --accent-strong: #0a5f7f;
+  --accent: #1498b5;
+  --accent-strong: #0f7f99;
   --accent-purple: #7c5cc4;
   color-scheme: light;
-  background: linear-gradient(180deg, #f8f9fc 0%, #f3f5f9 60%, #eef2f8 100%);
+  background: linear-gradient(180deg, #edeff4 0%, #e8eaf0 60%, #e3e6ee 100%);
 }
 
 a {
